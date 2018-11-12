@@ -3,6 +3,7 @@ import requests as req
 import datetime as dt
 
 
+
 class active_sheet:
     def __init__(self, work_book_loc, work_sheet):
         self.work_book_loc = work_book_loc
@@ -22,10 +23,11 @@ class c_date:
         wb[self.work_sheet]
         dt.datetime.now()
 
-a = active_sheet(r'C:\Users\aaron.saliba\source\repos\test\testing.xlsx',"Table")
-a.active_testing_sheet()
-b = c_date(r'C:\Users\aaron.saliba\source\repos\test\testing.xlsx', "Table", "G4")
-b.today_in_cell()
-c = active_workbook(r'C:\Users\aaron.saliba\source\repos\test\testing.xlsx')
-aw = xl.
-active_workbook.("testing.xlsx")
+def active_workbook(self):
+        wb = xl.workbook.Workbook.active
+
+ws = active_sheet("testing.xlsx","Table")
+ws.active_testing_sheet()
+date = c_date("testing.xlsx", "Table", "G4")
+date.today_in_cell()
+wb = active_workbook
