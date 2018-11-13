@@ -17,12 +17,11 @@ class vars:
     def today_in_cell(self):
         wb = xl.load_workbook(self.work_book)
         ws = wb[self.work_sheet]
-        ws[self.cell] = xlst.NamedStyle(number_format = 'Date')
+        ws[self.cell].number_format
+        'dd/mm/yyyy'
         ws[self.cell] = dt.datetime.today()
         wb.save(self.work_book)
 
-
-    
 
 ws = vars("testing.xlsx","Table","G4")
 ws.active_testing_sheet()
