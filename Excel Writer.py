@@ -7,7 +7,7 @@ def today_in_cell(workbook, sheet, cell):
     """[Writes today's date and time in a cell]
     
     Arguments:
-        workbook {[string]} -- [relative path of excel sheet. ex. "abc.xlsx" ]
+        workbook {[string]} -- [relative path of excel sheet. ex. "abc.xlsx"]
         sheet {[string]} -- [name of excel sheet. ex. "abc"]
         cell {[string]} -- [cell reference. ex: "A1"]
     """
@@ -18,21 +18,20 @@ def today_in_cell(workbook, sheet, cell):
     'dd/mm/yyyy hh:mm:ss'
     ws[cell] = dt.datetime.today()
     wb.save(workbook)
-def write_string_in_cell(workbook, sheet, cell):
-    """[Writes a string in a cell]
+def string_in_cell(workbook, sheet, cell, string):
+    """[Writes string in cell]
     
     Arguments:
-        workbook {[string]} -- [description]
-        sheet {[string]} -- [description]
-        cell {[string]} -- [description]
+        workbook {[string]} -- [relative path of excel sheet. ex. "abc.xlsx"]
+        sheet {[string]} -- [name of excel sheet. ex. "abc"]
+        cell {[string]} -- [cell reference. ex: "A1"]
+        string {[string]} -- [string to write in cell]
     """
-
     wb = xl.load_workbook(filename=workbook)
     ws = wb[sheet]
-    ws[cell].number_format
-    'dd/mm/yyyy h:mm:ss'
-    ws[cell] = dt.datetime.today()
+    ws[cell] = string
     wb.save(workbook)
     
-
 today_in_cell("testing.xlsx","Table","G4")
+string_in_cell("testing.xlsx","Table","B4","")
+
