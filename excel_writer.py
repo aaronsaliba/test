@@ -32,6 +32,7 @@ def string_in_cell(workbook, sheet, cell, string):
         cell {[string]} -- [cell reference. ex: "A1"]
         string {[string]} -- [string to write in cell]
     """
+    
     wb = xl.load_workbook(filename=workbook)
     ws = wb[sheet]
     ws[cell] = string
