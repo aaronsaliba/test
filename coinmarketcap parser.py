@@ -5,11 +5,25 @@ import datetime as dt
 import excel_writer as writer
 import json
 
-def cmc_data ():
-    cmc = req.get("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest", headers={"X-CMC_PRO_API_KEY":"9d1daf10-3b0e-4004-8abe-957e955940a5"})
-    print (cmc.json)
+def cmc_price (name, currency):
+    if currency == "USD":
+        r = req.get("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=USD", headers={"X-CMC_PRO_API_KEY":"9d1daf10-3b0e-4004-8abe-957e955940a5"})
+    elif currency == "EUR":
+        r = req.get("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=EUR", headers={"X-CMC_PRO_API_KEY":"9d1daf10-3b0e-4004-8abe-957e955940a5"})
+    else:
+        print ("Error: Currency not available")
+    
+    if r.status_code == 200:
+        cmc = json.loads(r.text)
+        cmc_data = cmc['data']
+        for price in cmc_data:
+            print (price)
+    else:
+        print("Error: Data cannot be accessed")
 
-cmc_data()
+    
+    
+cmc_price("abc", "USD")
 
 
 
