@@ -53,8 +53,3 @@ def cell_reader(workbook, sheet, cell):
     val = ws[cell].value
 
 
-
-
-
-
-
