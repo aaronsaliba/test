@@ -38,6 +38,23 @@ def string_in_cell(workbook, sheet, cell, string):
     ws[cell] = string
     wb.save(workbook)
 
+def cell_reader(workbook, sheet, cell):
+    
+    """[Reads a cell's value]
+    
+    Arguments:
+        workbook {[string]} -- [relative path of excel sheet. ex. "abc.xlsx"]
+        sheet {[string]} -- [name of excel sheet. ex. "abc"]
+        cell {[string]} -- [cell reference. ex: "A1"]
+    """
+
+    wb = xl.load_workbook(filename=workbook)
+    ws = wb[sheet]
+    val = ws[cell].value
+
+
+
+
 
 
 
