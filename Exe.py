@@ -6,10 +6,9 @@ import json
 import excel_writer_reader as ex
 import coinmarketcap_data_parser as cmc
 
-# name data from excel sheet
-
-ex.cell_reader("testing.xlsx","Table","A4")
-cmc.cmc_price("av","EUR")
+# Problem: cannot set the variable as the name
+a = ex.cell_reader("testing.xlsx","Table","A4")
+cmc.cmc_price(a ,"EUR")
 
 
 

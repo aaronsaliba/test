@@ -24,6 +24,7 @@ def cmc_price (name, currency):
         cmc_data = cmc['data']
         for price in cmc_data:
             if name == price["name"]:
+        # Problem: if the name does not exist in the sms data, then print that there is an error
                 try: 
                     print(price['quote'][currency]["price"])
                 except:
