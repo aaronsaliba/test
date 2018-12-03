@@ -50,6 +50,8 @@ def cell_reader(workbook, sheet, cell):
 
     wb = xl.load_workbook(filename=workbook)
     ws = wb[sheet]
-    val = ws[cell].value
+    return ws[cell].value
+   
 
+print(cell_reader("testing.xlsx", "Table", "A2"))
 
