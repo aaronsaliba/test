@@ -9,7 +9,7 @@ def cmc_price (symbol, currency):
     """[Extracts price from coinmarketcap]
     
     Arguments:
-        name {[string]} -- [name of coin]
+        symbol {[string]} -- [symbol of coin]
         currency {[string]} -- [currency of the price desired]
     """
     url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol={symbol}&convert={currency}"
@@ -18,12 +18,23 @@ def cmc_price (symbol, currency):
 
     if r.status_code == 200:
         cmc = json.loads(r.text)
-        cmc_data = cmc['data']
-
-        return cmc_data[ symbol ][ 'quote' ][ currency ]['price']                   
+        return cmc['data'][ symbol ][ 'quote' ][ currency ][ 'price' ]                   
     else:
-        print("Error: Data cannot be accessed")
+        return "Error: Data cannot be accessed"
 
+def cmc_7d (symbol, currency):
+    """[Extracts 7d% change from coinmarketcap]
     
-print( cmc_price("XRP", "EUR") ) 
+    Arguments:
+        symbol {[string]} -- [symbol of coin]
+        currency {[string]} -- [currency of the price desired]
+    """
+    url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol={symbol}&convert={currency}"
 
+    r = req.get(url, headers={"X-CMC_PRO_API_KEY":"9d1daf10-3b0e-4004-8abe-957e955940a5"})
+
+    if r.status_code == 200:
+        cmc = json.loads(r.text)
+        return cmc['data'][ symbol ][ 'quote' ][ currency ][ 'percent_change_7d' ]                   
+    else:
+        return "Error: Data cannot be accessed"

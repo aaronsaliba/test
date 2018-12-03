@@ -20,8 +20,6 @@ def today_in_cell(workbook, sheet, cell):
     ws[cell] = dt.datetime.today()
     wb.save(workbook)
 
-
-
 def string_in_cell(workbook, sheet, cell, string):
     # string_in_cell("testing.xlsx","Table","B4","")
     """[Writes string in cell]
@@ -50,8 +48,5 @@ def cell_reader(workbook, sheet, cell):
 
     wb = xl.load_workbook(filename=workbook)
     ws = wb[sheet]
-    return ws[cell].value
-   
-
-print(cell_reader("testing.xlsx", "Table", "A2"))
-
+    val = ws[cell].value
+    return val
